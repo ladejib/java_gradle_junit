@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  java-app:
+    build: .
+    volumes:
+      - ./src:/app/src
+    stdin_open: true
+    tty: true
+
