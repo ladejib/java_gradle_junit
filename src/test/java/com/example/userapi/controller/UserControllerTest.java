@@ -100,7 +100,7 @@ class UserControllerTest {
         // When & Then
         mockMvc.perform(get("/api/users/1"))
                 .andExpect(status().isOk())
-                .andExpected(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.username").value("testuser"));
     }
 
@@ -128,7 +128,7 @@ class UserControllerTest {
         mockMvc.perform(get("/api/users"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2))
-                .andExpected(jsonPath("$[0].username").value("testuser"))
+                .andExpect(jsonPath("$[0].username").value("testuser"))
                 .andExpect(jsonPath("$[1].username").value("user2"));
     }
 
@@ -141,7 +141,7 @@ class UserControllerTest {
         // When & Then
         mockMvc.perform(get("/api/users/check-username/newuser"))
                 .andExpect(status().isOk())
-                .andExpected(jsonPath("$.available").value(true));
+                .andExpect(jsonPath("$.available").value(true));
     }
 
     @Test
@@ -154,6 +154,6 @@ class UserControllerTest {
         mockMvc.perform(get("/api/users/check-email")
                 .param("email", "new@example.com"))
                 .andExpect(status().isOk())
-                .andExpected(jsonPath("$.available").value(true));
+                .andExpect(jsonPath("$.available").value(true));
     }
 }
