@@ -4,6 +4,7 @@ services:
     image: gradle:8.0.2-jdk17
     volumes:
       - .:/app
+      - ./build:/app/build
     working_dir: /app
     command: ["gradle", "run", "--no-daemon"]
     ports:
@@ -15,3 +16,8 @@ services:
       - .:/app
     working_dir: /app
     command: ["gradle", "test", "--no-daemon"]
+    # No need for ports in test
+
+# docker-compose down
+# docker-compose up
+# docker-compose run --rm test gradle test --stacktrace
